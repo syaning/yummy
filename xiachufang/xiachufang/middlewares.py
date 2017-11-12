@@ -6,6 +6,7 @@ class UserAgentMiddleware(object):
 
     def process_request(self, request, spider):
         request.headers["User-Agent"] = ua.rand()
+        request.headers["Referer"] = 'https://www.xiachufang.com/'
 
 
 class XiachufangSpiderMiddleware(object):
