@@ -29,7 +29,6 @@ class RecipeSpider(Spider):
 
     def parse_recipe(self, response):
         item = RecipeItem()
-
         item['url'] = response.url
         item['name'] = response.css('h1.page-title') \
                                .xpath('text()') \
@@ -37,9 +36,12 @@ class RecipeSpider(Spider):
         item['img'] = response.css('.recipe-show .cover img') \
                               .xpath('@src') \
                               .extract()[0]
-        item['desc'] = response.css('.recipe-show .desc') \
-                               .xpath('text()') \
-                               .extract()[0].strip()
+
+        desc_sel = response.css('.recipe-show .desc')
+        if len(desc_sel):
+            item['desc'] = desc_sel.xpath('text()').extract()[0].strip()
+        else:
+            item['desc'] = ''
 
         item['materials'] = []
         for sel in response.css('.ings tr'):

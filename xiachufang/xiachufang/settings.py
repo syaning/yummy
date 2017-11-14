@@ -13,7 +13,7 @@ SPIDER_MODULES = ['xiachufang.spiders']
 NEWSPIDER_MODULE = 'xiachufang.spiders'
 
 JOBDIR = 'job'
-LOG_LEVEL = 'INFO'
+LOG_LEVEL = 'DEBUG'
 FEED_EXPORT_ENCODING = 'utf-8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -23,14 +23,14 @@ FEED_EXPORT_ENCODING = 'utf-8'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
-CONCURRENT_REQUESTS_PER_DOMAIN = 5
+# CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
