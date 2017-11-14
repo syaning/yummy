@@ -2,7 +2,7 @@ from scrapy import Item, Field
 
 
 class CategoryItem(Item):
-    category = Field()
+    name = Field()
     url = Field()
 
 

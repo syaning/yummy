@@ -11,6 +11,6 @@ class CategoryListSpider(Spider):
     def parse(self, response):
         for sel in response.css('.cates-list-all li a'):
             item = CategoryItem()
-            item['category'] = sel.xpath('text()').extract()[0]
+            item['name'] = sel.xpath('text()').extract()[0]
             item['url'] = base_url + sel.xpath('@href').extract()[0]
             yield item
