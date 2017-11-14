@@ -1,12 +1,12 @@
 from scrapy import signals
-from xiachufang import ua
+from xiachufang.util import base_url, rand_ua
 
 
-class UserAgentMiddleware(object):
+class HttpHeaderMiddleware(object):
 
     def process_request(self, request, spider):
-        request.headers["User-Agent"] = ua.rand()
-        request.headers["Referer"] = 'https://www.xiachufang.com/'
+        request.headers["User-Agent"] = rand_ua()
+        request.headers["Referer"] = base_url
 
 
 class XiachufangSpiderMiddleware(object):

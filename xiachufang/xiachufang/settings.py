@@ -13,8 +13,8 @@ SPIDER_MODULES = ['xiachufang.spiders']
 NEWSPIDER_MODULE = 'xiachufang.spiders'
 
 JOBDIR = 'job'
-
 LOG_LEVEL = 'INFO'
+FEED_EXPORT_ENCODING = 'utf-8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'xiachufang (+http://www.yourdomain.com)'
@@ -54,7 +54,7 @@ COOKIES_ENABLED = False
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'xiachufang.middlewares.UserAgentMiddleware': 543,
+    'xiachufang.middlewares.HttpHeaderMiddleware': 543,
 }
 
 # Enable or disable extensions
