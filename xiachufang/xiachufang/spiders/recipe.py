@@ -33,9 +33,12 @@ class RecipeSpider(Spider):
         item['name'] = response.css('h1.page-title') \
                                .xpath('text()') \
                                .extract()[0].strip()
-        item['img'] = response.css('.recipe-show .cover img') \
-                              .xpath('@src') \
-                              .extract()[0]
+
+        img_sel = response.css('.recipe-show .cover img')
+        if len(img_sel):
+            item['img'] = img_sel.xpath('@src').extract()[0]
+        else:
+            item['img'] = ''
 
         desc_sel = response.css('.recipe-show .desc')
         if len(desc_sel):
