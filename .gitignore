@@ -102,3 +102,5 @@ ENV/
 
 xiachufang/job/
 xiachufang/data/
+xiachufang/image/
+.DS_Store
